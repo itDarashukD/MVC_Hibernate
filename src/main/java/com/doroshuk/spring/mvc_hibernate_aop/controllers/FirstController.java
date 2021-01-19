@@ -3,6 +3,7 @@ package com.doroshuk.spring.mvc_hibernate_aop.controllers;
 import com.doroshuk.spring.mvc_hibernate_aop.dao.EmployeeDaoImpl;
 import com.doroshuk.spring.mvc_hibernate_aop.dao.Idao;
 import com.doroshuk.spring.mvc_hibernate_aop.entity.Employee;
+import com.doroshuk.spring.mvc_hibernate_aop.services.Iservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,19 +14,18 @@ import java.util.List;
 @Controller
 public class FirstController {
 
-
-    private Idao idao;
+    private Iservice iservice;
 
     @Autowired
-    public FirstController(Idao idao) {
-        this.idao = idao;
+    public FirstController(Iservice iservice) {
+        this.iservice = iservice;
     }
 
     @RequestMapping("/")
-    public String showAllEmployee(Model model){
+    public String showAllEmployee(Model model) {
 
-        List<Employee>listAllEmployee =  idao.getAll();
-        model.addAttribute("listAllEmployeeAttribute",listAllEmployee);
+        List<Employee> listAllEmployee = iservice.getAll();
+        model.addAttribute("listAllEmployeeAttribute", listAllEmployee);
         return "showAllEmployeeView";
     }
 }
