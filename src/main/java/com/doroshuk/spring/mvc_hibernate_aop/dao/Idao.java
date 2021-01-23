@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface Idao {
     public List<Employee> getAll();
+    public void save(Employee employee);
 }

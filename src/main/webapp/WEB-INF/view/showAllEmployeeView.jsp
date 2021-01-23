@@ -1,5 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
  
 <!DOCTYPE html>
 <html>
@@ -28,9 +29,12 @@
             <td>${empl.salary}</td>
         </tr>
     </c:forEach>
-<%--    </c:forEach>--%>
+
 
 </table>
 
+
+<input type="button" value="add"
+       onclick="window.location.href= 'addEmployeeView'"/>
 </body>
 </html>

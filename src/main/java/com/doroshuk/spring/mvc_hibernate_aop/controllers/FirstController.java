@@ -7,6 +7,7 @@ import com.doroshuk.spring.mvc_hibernate_aop.services.Iservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -28,4 +29,20 @@ public class FirstController {
         model.addAttribute("listAllEmployeeAttribute", listAllEmployee);
         return "showAllEmployeeView";
     }
+    @RequestMapping("/addEmployee")
+    public String addEmployee(Model model){
+        Employee employee = new Employee();
+        model.addAttribute("employeeAtribute",employee);
+
+        return "addEmployeeView";
+    }
+
+    @RequestMapping("/saveEmployee")
+    public String saveEmployee(@ModelAttribute("addEmployeeView") Employee employee){
+
+        iservice.save(employee);
+
+        return "redirect:/";
+    }
+
 }

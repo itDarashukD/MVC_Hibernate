@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface Iservice {
     public List<Employee>getAll();
+    public void save(Employee employee);
 }

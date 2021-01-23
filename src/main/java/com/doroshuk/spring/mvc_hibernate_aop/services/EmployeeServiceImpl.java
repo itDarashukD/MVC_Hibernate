@@ -23,4 +23,10 @@ public class EmployeeServiceImpl implements Iservice{
     public List<Employee> getAll() {
        return idao.getAll();
     }
+
+    @Transactional
+    @Override
+    public void save(Employee employee) {
+        idao.save(employee);
+    }
 }
